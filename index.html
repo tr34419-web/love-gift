@@ -14,9 +14,15 @@ font-family:sans-serif;
 }
 
 body{
-background: red ;
-background-size: 300% 300%;
-animation: bgMove 8s ease infinite;
+background: linear-gradient(135deg,
+#ff4fa0,
+#ff7eb3,
+#ffc1dc,
+#fff0f7,
+#ff9ecf);
+
+background-size: 400% 400%;
+animation: bgMove 10s ease infinite;
 
 overflow:hidden;
 height:100vh;
@@ -24,6 +30,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 }
+
 
 .page{
 position:absolute;
@@ -166,8 +173,26 @@ transform:translateY(-120px);
 opacity:0;
 }
 }
-</style>
+.heart{
+position:fixed;
+font-size:24px;
+animation: floatUp 3s linear forwards;
+pointer-events:none;
+opacity:0.9;
+}
 
+@keyframes floatUp{
+0%{
+transform:translateY(0) scale(1);
+opacity:1;
+}
+100%{
+transform:translateY(-120px) scale(1.5);
+opacity:0;
+}
+}
+</style>
+  
 </head>
 
 <body>
@@ -199,11 +224,11 @@ opacity:0;
 <div>
 
 <button class="yes" onclick="finishLove()">
-ตกลง ❤️
+เป็นแฟนกันนะ 💕
 </button>
 
 <button class="no" id="no2">
-ไม่
+ไม่เป็ส
 </button>
 
 </div>
@@ -249,6 +274,22 @@ function finishLove(){
 
 document.getElementById("page2").classList.add("hidden");
 document.getElementById("page3").classList.remove("hidden");
+
+// 💗 เพิ่มหัวใจรัวๆ
+for(let i=0;i<20;i++){
+setTimeout(()=>{
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💖";
+
+h.style.left=Math.random()*100+"vw";
+h.style.top=(60+Math.random()*40)+"vh";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),3000);
+},i*80);
+}
 
 }
 
