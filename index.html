@@ -14,7 +14,13 @@ font-family:sans-serif;
 }
 
 body{
-background:linear-gradient(180deg,#ff9ecf,#ffd6e7,#fff0f7);
+background: linear-gradient(135deg,
+#ff6fae,
+#ff9ecf,
+#ffd6e7,
+#fff0f7);
+background-size: 300% 300%;
+animation: bgMove 8s ease infinite;
 background-attachment:fixed;
 overflow:hidden;
 height:100vh;
@@ -43,7 +49,9 @@ display:none;
 h1{
 font-size:2.2rem;
 color:white;
-text-shadow:0 0 15px hotpink;
+text-shadow:0 0 10px #ff4fa0,
+0 0 20px #ff7eb3,
+0 0 30px #ffb3d1;
 margin-bottom:15px;
 }
 
@@ -130,7 +138,40 @@ transform:translateX(0);
 }
 
 }
+@keyframes bgMove{
+0%{
+background-position:0% 50%;
+}
+50%{
+background-position:100% 50%;
+}
+100%{
+background-position:0% 50%;
+}
+}
+.sparkle{
+position:fixed;
+width:4px;
+height:4px;
+background:white;
+border-radius:50%;
+pointer-events:none;
+opacity:0.8;
+animation: sparkleMove 3s linear forwards;
+}
+
+@keyframes sparkleMove{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-120px);
+opacity:0;
+}
+}
 </style>
+
 </head>
 
 <body>
@@ -184,7 +225,22 @@ transform:translateX(0);
 </div>
 
 </div>
-<script>
+
+  <script>
+    
+function sparkle(){
+const s=document.createElement("div");
+s.className="sparkle";
+
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(s);
+
+setTimeout(()=>{s.remove();},3000);
+}
+
+setInterval(sparkle,200);
 
 function nextPage(){
 
