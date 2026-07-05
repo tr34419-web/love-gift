@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You ❤️</title>
+<title>Will You Be Mine? 🥺💗</title>
 
 <style>
 *{
@@ -14,7 +14,8 @@ font-family:sans-serif;
 }
 
 body{
-background:linear-gradient(180deg,#ffb7d5,#ffddea);
+background:linear-gradient(180deg,#ff9ecf,#ffd6e7,#fff0f7);
+background-attachment:fixed;
 overflow:hidden;
 height:100vh;
 display:flex;
@@ -63,14 +64,25 @@ transition:.25s;
 }
 
 .yes{
-background:#ff4f8b;
+background:linear-gradient(45deg,#ff4f8b,#ff7eb3);
 color:white;
+box-shadow:0 0 20px rgba(255,105,180,.6);
+transition:.3s;
+}
+
+.yes:hover{
+transform:scale(1.08);
+box-shadow:0 0 30px hotpink;
 }
 
 .no{
-background:white;
+background:#fff;
 color:#ff4f8b;
+border:2px solid #ff9ac5;
+box-shadow:0 0 15px rgba(255,182,193,.5);
+transition:.3s;
 position:relative;
+animation: idleShake 1.2s infinite;
 }
 
 .petal{
@@ -91,6 +103,29 @@ opacity:1;
 100%{
 transform:translateY(110vh) rotate(360deg);
 opacity:0;
+}
+
+}
+@keyframes idleShake{
+
+0%{
+transform:translateX(0);
+}
+
+25%{
+transform:translateX(-2px) rotate(-2deg);
+}
+
+50%{
+transform:translateX(2px) rotate(2deg);
+}
+
+75%{
+transform:translateX(-2px) rotate(-2deg);
+}
+
+100%{
+transform:translateX(0);
 }
 
 }
