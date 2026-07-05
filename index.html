@@ -208,15 +208,36 @@ btn.addEventListener("mouseenter",move);
 
 function move(){
 
-const x=Math.random()*(window.innerWidth-140);
-const y=Math.random()*(window.innerHeight-80);
+const text=[
+"🥺 ไม่เอาน้า",
+"😭 คิดดีๆ",
+"💖 ลองใหม่สิ",
+"🌸 เค้างอนแล้ว",
+"🥹 จริงหรอ",
+"😖 อย่าปฏิเสธเลย",
+"❤️ กดตกลงเถอะ"
+];
+
+btn.innerHTML=text[Math.floor(Math.random()*text.length)];
+
+btn.style.transform="scale(.8) rotate(-10deg)";
+
+setTimeout(()=>{
+btn.style.transform="scale(1.15) rotate(10deg)";
+},80);
+
+setTimeout(()=>{
+btn.style.transform="scale(1)";
+},180);
+
+const x=Math.random()*(window.innerWidth-150);
+const y=Math.random()*(window.innerHeight-90);
 
 btn.style.position="fixed";
 btn.style.left=x+"px";
 btn.style.top=y+"px";
 
 }
-
 }
 
 moveButton("no1");
